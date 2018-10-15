@@ -1,0 +1,24 @@
+<h1>ショップ一覧</h1>
+
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>店名</th>
+    <th>感想</th>
+  </tr>
+
+<% @shops.each do |shop| %>
+  <tr>
+    <td><%= shop.shop_name %></td>
+    <td><%= shop.impression %></td>
+
+    <td><%= link_to '詳細を確認する', shop_path(shop.id) %></td>
+    <td><%= link_to 'お店情報を編集する', edit_shop_path(shop.id) %></td>
+    <td><%= link_to 'お店情報を削除する', shop_path(shop.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+<%= link_to '新しいお店を投稿する', new_shop_path %>

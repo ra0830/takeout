@@ -1,0 +1,25 @@
+<%= form_with(model: @shop, local: true ,url: choose_new_or_edit) do |form| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @shop.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @shop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+    <%= form.label :shop_name %>
+    <%= form.text_field :shop_name %>
+  <br>
+  <br>
+    <%= form.label :impression %>
+    <%= form.text_field :impression %>
+  <br>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "ショップ一覧画面にもどる",shops_path %>

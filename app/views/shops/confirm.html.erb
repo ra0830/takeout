@@ -2,10 +2,20 @@
 
 <%= form_with(model: @shop, url: shops_path, local: true) do |form| %>
   <%= form.hidden_field :shop_name %>
+  <%= form.hidden_field :category %>
+  <%= form.hidden_field :station %>
+  <%= form.hidden_field :phone_number %>
+  <%= form.hidden_field :adress %>
+  <%= form.hidden_field :payment %>
   <%= form.hidden_field :impression %>
 
-  <p>タイトル:<%= @shop.shop_name %></p>
-  <p>本文:<%= @shop.impression %></p>
+  <p>店名: <%= @shop.shop_name %></p>
+  <p>カテゴリー: <%= @shop.category %></p>
+  <p>最寄駅: <%= @shop.station %></p>
+  <p>電話番号: <%= @shop.phone_number %></p>
+  <p>住所: <%= @shop.adress %>
+  <p>お会計: <%= @shop.payment %>
+  <p>感想: <%= @shop.impression %></p>
   <%= form.submit  "登録する" %>
 <% end %>
 

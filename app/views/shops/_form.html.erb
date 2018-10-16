@@ -16,10 +16,31 @@
     <%= form.text_field :shop_name %>
   <br>
   <br>
+    <%= form.label :category %>
+    <%= form.text_field :category%>
+  <br>  
+  <br>
+  <%= form.label :station %>
+  <%= form.text_field :station%>
+  <br>
+  <br>
+  <%= form.label :phone_number %>
+  <%= form.text_field :phone_number%>
+  <br>
+  <br>
+  <%= form.label :adress %>
+  <%= form.text_field :adress %>
+  <br>
+  <br>
+  <%= form.label :payment %>
+  <%= form.text_field :payment %>
+  <br>
+  <br>
     <%= form.label :impression %>
     <%= form.text_field :impression %>
   <br>
+  <br>
   <%= form.submit %>
 <% end %>
-
+<br>
 <%= link_to "ショップ一覧画面にもどる",shops_path %>

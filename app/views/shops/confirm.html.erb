@@ -1,17 +1,17 @@
 <h3>以下の内容で、送信する。</h3>
 
 <%= form_with(model: @shop, url: shops_path, local: true) do |form| %>
-  <%= form.hidden_field :shop_name %>
+  <%= form.hidden_field :name %>
   <%= form.hidden_field :category %>
   <%= form.hidden_field :station %>
   <%= form.hidden_field :phone_number %>
   <%= form.hidden_field :adress %>
   <%= form.hidden_field :payment %>
   <%= form.hidden_field :impression %>
-  <%= image_tag(@shop.shop_image.url) %>
-  <%= form.hidden_field :shop_image_cache %>
+  <%= image_tag(@shop.image.url) %>
+  <%= form.hidden_field :image_cache %>
 
-  <p>店名: <%= @shop.shop_name %></p>
+  <p>店名: <%= @shop.name %></p>
   <p>カテゴリー: <%= @shop.category %></p>
   <p>最寄駅: <%= @shop.station %></p>
   <p>電話番号: <%= @shop.phone_number %></p>
@@ -22,13 +22,13 @@
 <% end %>
 
 <%= form_with(model: @shop, url: new_shop_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :shop_name %>
+  <%= form.hidden_field :name %>
   <%= form.hidden_field :category %>
   <%= form.hidden_field :station %>
   <%= form.hidden_field :phone_number %>
   <%= form.hidden_field :adress %>
   <%= form.hidden_field :payment %>
   <%= form.hidden_field :impression %>
-  <%= form.hidden_field :shop_image_cache %>
+  <%= form.hidden_field :image_cache %>
   <%= form.submit "もどる", name: 'back' %>
 <% end %>

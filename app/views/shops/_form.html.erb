@@ -12,8 +12,8 @@
   <% end %>
 
   <br>
-    <%= form.label :shop_name %>
-    <%= form.text_field :shop_name %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   <br>
   <br>
     <%= form.label :category %>
@@ -40,9 +40,9 @@
     <%= form.text_field :impression %>
   <br>
   <br>
-    <%= form.label :shop_image %>
-    <%= image_tag(@shop.shop_image.url) if @shop.shop_image.url %>
-    <%= form.file_field :shop_image %>
+    <%= form.label :image %>
+    <%= image_tag(@shop.image) if @shop.image %>
+    <%= form.file_field :image %>
   <br>
   <br>  
   <%= form.submit %>

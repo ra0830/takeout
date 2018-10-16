@@ -1,14 +1,14 @@
 <h1>ショップ詳細画面</h1>
-<p>店名: <%= @shop.shop_name %></p>
+<p>店名: <%= @shop.name %></p>
 <p>カテゴリー: <%= @shop.category %></p>
 <p>最寄駅: <%= @shop.station %></p>
 <p>電話番号: <%= @shop.phone_number %></p>
 <p>住所: <%= @shop.adress %>
 <p>お会計: <%= @shop.payment %>
 <p>感想: <%= @shop.impression %></p>
-<% if @shop.shop_image.present? %>
+<% if @shop.image.present? %>
 <p>
   <strong>写真:</strong>
-  <%= image_tag @shop.shop_image.url %>
+  <%= image_tag @shop.image.url %>
 </p>
 <% end %>

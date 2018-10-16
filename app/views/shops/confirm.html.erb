@@ -8,6 +8,8 @@
   <%= form.hidden_field :adress %>
   <%= form.hidden_field :payment %>
   <%= form.hidden_field :impression %>
+  <%= image_tag(@shop.shop_image.url) %>
+  <%= form.hidden_field :shop_image_cache %>
 
   <p>店名: <%= @shop.shop_name %></p>
   <p>カテゴリー: <%= @shop.category %></p>
@@ -21,6 +23,12 @@
 
 <%= form_with(model: @shop, url: new_shop_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :shop_name %>
+  <%= form.hidden_field :category %>
+  <%= form.hidden_field :station %>
+  <%= form.hidden_field :phone_number %>
+  <%= form.hidden_field :adress %>
+  <%= form.hidden_field :payment %>
   <%= form.hidden_field :impression %>
+  <%= form.hidden_field :shop_image_cache %>
   <%= form.submit "もどる", name: 'back' %>
 <% end %>

@@ -6,3 +6,9 @@
 <p>住所: <%= @shop.adress %>
 <p>お会計: <%= @shop.payment %>
 <p>感想: <%= @shop.impression %></p>
+<% if @shop.shop_image.present? %>
+<p>
+  <strong>写真:</strong>
+  <%= image_tag @shop.shop_image.url %>
+</p>
+<% end %>

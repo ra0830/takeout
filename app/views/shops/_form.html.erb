@@ -40,6 +40,11 @@
     <%= form.text_field :impression %>
   <br>
   <br>
+    <%= form.label :shop_image %>
+    <%= image_tag(@shop.shop_image.url) if @shop.shop_image.url %>
+    <%= form.file_field :shop_image %>
+  <br>
+  <br>  
   <%= form.submit %>
 <% end %>
 <br>

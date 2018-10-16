@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
-  PER = 10
+  PER = 5
 
   def index
     @shops = Shop.page(params[:page]).per(PER)
@@ -53,7 +53,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:shop_name, :category, :station, :phone_number, :adress, :payment, :impression)
+    params.require(:shop).permit(:shop_name, :category, :station, :phone_number, :adress, :payment, :impression, :shop_image, :shop_image_cache)
   end
 
   def set_shop

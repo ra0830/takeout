@@ -18,6 +18,8 @@
   <p>住所: <%= @shop.adress %>
   <p>お会計: <%= @shop.payment %>
   <p>感想: <%= @shop.impression %></p>
+  <%= image_tag(@shop.image.url) %>
+  <%#= form.hidden_field :image_cache %>
   <%= form.submit  "登録する" %>
 <% end %>
 

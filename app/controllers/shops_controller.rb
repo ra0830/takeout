@@ -10,6 +10,15 @@ class ShopsController < ApplicationController
       @shops = @shops.search(params[:search], params[:page])
     end
 
+    # 並び替え
+    if params[:low].present? || params[:low] == 'true'
+      @shops = @shops.order(:payment).page(params[:page])
+    elsif params[:high].present? || params[:high] == 'true'
+      @shops = @shops.order(:payment).reverse_order.page(params[:page])
+    else
+      @shops = Shop.page(params[:page]).per(PER)
+    end
+
   end
   
   def new

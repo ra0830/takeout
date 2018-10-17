@@ -12,35 +12,35 @@
   <% end %>
 
   <br>
-    <%= form.label :name %>
+    <%= form.label :店名 %>
     <%= form.text_field :name %>
   <br>
   <br>
-    <%= form.label :category %>
+    <%= form.label :ジャンル %>
     <%= form.text_field :category%>
   <br>  
   <br>
-  <%= form.label :station %>
+  <%= form.label :最寄駅 %>
   <%= form.text_field :station%>
   <br>
   <br>
-  <%= form.label :phone_number %>
+  <%= form.label :電話番号 %>
   <%= form.text_field :phone_number%>
   <br>
   <br>
-  <%= form.label :adress %>
+  <%= form.label :住所 %>
   <%= form.text_field :adress %>
   <br>
   <br>
-  <%= form.label :payment %>
-  <%= form.text_field :payment %>
+  <%= form.label :予算 %>
+  <%= form.text_field :payment %>円
   <br>
   <br>
-    <%= form.label :impression %>
+    <%= form.label :レビュー %>
     <%= form.text_field :impression %>
   <br>
   <br>
-    <%= form.label :image %>
+    <%= form.label :画像 %>
     <%= image_tag(@shop.image.url) if @shop.image.url %>
     <%= form.file_field :image %>
   <br>

@@ -41,7 +41,7 @@
   <br>
   <br>
     <%= form.label :image %>
-    <%= image_tag(@shop.image) if @shop.image %>
+    <%= image_tag(@shop.image.url) if @shop.image.url %>
     <%= form.file_field :image %>
   <br>
   <br>  

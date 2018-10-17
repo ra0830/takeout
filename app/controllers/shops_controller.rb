@@ -4,6 +4,12 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.page(params[:page]).per(PER)
+
+    #タイトル検索
+    if params[:search].present?
+      @shops = @shops.search(params[:search], params[:page])
+    end
+
   end
   
   def new

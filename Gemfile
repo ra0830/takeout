@@ -16,6 +16,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'kaminari', '~> 0.17.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'devise'
+gem 'rails_admin', '~> 1.3'
+gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

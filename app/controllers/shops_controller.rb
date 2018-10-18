@@ -5,18 +5,23 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.page(params[:page]).per(PER)
 
-    #タイトル検索
-    if params[:search].present?
-      @shops = @shops.search(params[:search], params[:page])
-    end
-
     # 並び替え
     if params[:low].present? || params[:low] == 'true'
-      @shops = @shops.order(:payment).page(params[:page])
+      @shops = @shops.order(:payment).page(params[:page]).per(PER)
     elsif params[:high].present? || params[:high] == 'true'
-      @shops = @shops.order(:payment).reverse_order.page(params[:page])
-    else
+      @shops = @shops.order(:payment).reverse_order.page(params[:page]).per(PER)
+    else  
       @shops = Shop.page(params[:page]).per(PER)
+    end
+
+    #タイトル検索
+    if params[:search].present?
+      @shops = @shops.search(params[:search], params[:page]).per(PER)
+    end
+
+    #カテゴリー検索
+    if params[:shop].present? && params[:shop][:search_category].present?
+      @shops = @shops.search_category(params[:shop][:search_category], params[:shop][:category], params[:page]).per(PER)
     end
 
   end

@@ -9,4 +9,13 @@ class Shop < ApplicationRecord
       Shop.all.page(pages)
     end
   end
+
+  def self.search_category(search_category, shop_category, pages)
+    if search_category == 'true'
+      Shop.where(category: shop_category).page(pages)
+    else
+      Shop.all.page(pages)
+    end
+  end
+
 end

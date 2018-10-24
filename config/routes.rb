@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'shops#index'
 
   resources :shops do
+    resources :comments
     collection do
       post :confirm
     end

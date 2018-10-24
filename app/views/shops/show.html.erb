@@ -12,3 +12,11 @@
   <%= image_tag @shop.image.url %>
 </p>
 <% end %>
+<p>コメント一覧</p>
+<div id="comments_area">
+<!-- 投稿されたコメント一覧をショップの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/index', locals: { comments: @comments, shop: @shop } %>
+</div>
+
+<!-- コメント入力欄をショップの詳細ページに表示するためのrender -->
+<%= render partial: 'comments/form', locals: { comment: @comment, shop: @shop } %>

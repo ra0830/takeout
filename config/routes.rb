@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :comments
-    collection do
-      post :confirm
-    end
+    post :confirm, on: :collection
   end
 end

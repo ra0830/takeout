@@ -3,8 +3,8 @@
     <% if comment.id.present? %>
       <li>
         <p><%= comment.content %></p>
-        <p>投稿者：<%#= comment.user.email %></p>
-        <p><%#= link_to 'コメントを削除する',comment_path(comment), method: :delete, remote: true %></p>
+        <p>投稿者：<%= comment.user.email %></p>
+        <p><%= link_to 'コメントを削除する', shop_comment_path(shop,comment), method: :delete, remote: true %></p>
       </li>
     <% end %>
   <% end %>

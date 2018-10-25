@@ -1,0 +1,23 @@
+<h1>気になる一覧</h1>
+
+<table>
+  <tr>
+    <th>店名</th>
+    <th>カテゴリー</th>
+    <th>最寄駅</th>
+    <th>予算</th>
+  </tr>
+
+<% @favorite_shops.each do |shop| %>
+  <tr>
+    <td><%= shop.name %></td>
+    <td><%= shop.category%></td>
+    <td><%= shop.station %></td>
+    <td><%= shop.payment %>円</td>
+
+    <td><%= link_to '詳細', shop_path(shop.id) %></td>
+    <td><%#= link_to '編集', edit_shop_path(shop.id) %></td>
+    <td><%#= link_to '削除', shop_path(shop.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>

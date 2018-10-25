@@ -20,3 +20,11 @@
 
 <!-- コメント入力欄をショップの詳細ページに表示するためのrender -->
 <%= render partial: 'comments/form', locals: { comment: @comment, shop: @shop } %>
+
+<% unless @shop.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(shop_id: @shop.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

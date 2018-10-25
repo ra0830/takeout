@@ -36,7 +36,10 @@ class ShopsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @shop = Shop.new(shop_params)
+    @shop.user_id = current_user.id
+    
     if @shop.save
       redirect_to shops_path, notice: 'お店を登録しました！'
     else
@@ -45,9 +48,11 @@ class ShopsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @shop = Shop.find(params[:id])
     @comments = @shop.comments
     @comment = @shop.comments.build
+    @favorite = current_user.favorites.find_by(shop_id: @shop.id)
   end
 
   def edit
@@ -69,7 +74,9 @@ class ShopsController < ApplicationController
   end
 
   def confirm
+    # binding.pry
     @shop = Shop.new(shop_params)
+    @shop.user_id = current_user.id
     render :new if @shop.invalid?
   end
 

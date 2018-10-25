@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :comments
     post :confirm, on: :collection
   end
+  resources :favorites, only: [:create, :destroy, :index]
 end

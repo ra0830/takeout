@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     post :confirm, on: :collection
   end
   resources :favorites, only: [:create, :destroy, :index]
+  resources :rates, only: [:create, :destroy]
 end

@@ -48,11 +48,15 @@ class ShopsController < ApplicationController
   end
 
   def show
-    # binding.pry
+    # binding.pry        
     @shop = Shop.find(params[:id])
     @comments = @shop.comments
     @comment = @shop.comments.build
     @favorite = current_user.favorites.find_by(shop_id: @shop.id)
+    @rate = current_user.rates.find_by(shop_id: @shop.id)
+    # 評価の算出
+
+    binding.pry
   end
 
   def edit

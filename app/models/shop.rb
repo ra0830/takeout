@@ -3,6 +3,8 @@ class Shop < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
+  has_many :rates, dependent: :destroy
+  has_many :rate_users, through: :rates, source: :user
   validates :name, presence: true
   mount_uploader :image, ImageUploader
 

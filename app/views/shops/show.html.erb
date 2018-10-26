@@ -12,7 +12,7 @@
   <%= image_tag @shop.image.url %>
 </p>
 <% end %>
-<p>コメント一覧</p>
+<p>コメント一覧:</p>
 <div id="comments_area">
 <!-- 投稿されたコメント一覧をショップの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/index', locals: { comments: @comments, shop: @shop } %>
@@ -22,9 +22,31 @@
 <%= render partial: 'comments/form', locals: { comment: @comment, shop: @shop } %>
 
 <% unless @shop.user_id == current_user.id %>
+  <%# if @shop.rates.present? %>
+  <% if @rate.present? %>
+
+    <br>
+    <p>評価を終えています</p>
+  <% else %>
+    <br><br>
+    <p>この投稿を評価する</p>
+    <%= form_with(model: Rate, local: true, method: :post) do |f| %>
+      <%= f.label :score, "5点満点で評価する" %>
+      <%= f.select :score,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5']] %>
+      <%= f.hidden_field :shop_id, value: @shop.id %>
+      <%= f.submit "評価" %>
+    <% end %>
+  <% end %>
+ <br><br>
+<% end %>
+
+<p> 評価の平均（五段階）</p>
+
+<% unless @shop.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
     <%= link_to 'お気に入りする', favorites_path(shop_id: @shop.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
+<br>

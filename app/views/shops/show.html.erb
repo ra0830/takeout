@@ -40,7 +40,8 @@
  <br><br>
 <% end %>
 
-<p> 評価の平均（五段階）</p>
+<p> 評価の平均（五段階）：<%= @average %></p>
+<p><progress max="5.00" value=<%= @average %>></p>
 
 <% unless @shop.user_id == current_user.id %>
   <% if @favorite.present? %>

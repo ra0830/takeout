@@ -55,8 +55,10 @@ class ShopsController < ApplicationController
     @favorite = current_user.favorites.find_by(shop_id: @shop.id)
     @rate = current_user.rates.find_by(shop_id: @shop.id)
     # 評価の算出
-
-    binding.pry
+    @sum = @shop.rates.sum(:score)
+    @count = @shop.rates.count(:user_id)
+    @average = (@sum/@count.to_f).round(2)
+      # binding.pry
   end
 
   def edit

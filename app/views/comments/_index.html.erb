@@ -3,7 +3,7 @@
     <% if comment.id.present? %>
       <li>
         <p><%= comment.content %></p>
-        <p>投稿者：<%= comment.user.email %></p>
+        <p>投稿者：<%= comment.user.name %></p>
         <% if comment.user == current_user %>
         <p><%= link_to 'コメントを削除する', shop_comment_path(shop,comment), method: :delete, remote: true %>
         <% end %>

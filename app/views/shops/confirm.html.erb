@@ -1,3 +1,5 @@
+<div class="wapper">
+<div class="container" >
 <h3>以下の内容で、送信する。</h3>
 
 <%= form_with(model: @shop, url: shops_path, local: true) do |form| %>
@@ -34,3 +36,5 @@
   <%= form.hidden_field :image_cache %>
   <%= form.submit "もどる", name: 'back' %>
 <% end %>
+</div>
+</div>

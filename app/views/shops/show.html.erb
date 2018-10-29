@@ -1,3 +1,4 @@
+<div class="container" >
 <h1>ショップ詳細画面</h1>
 <p>店名: <%= @shop.name %></p>
 <p>カテゴリー: <%= @shop.category %></p>
@@ -42,7 +43,7 @@
 
 <p> 評価の平均（五段階）：<%= @average %></p>
 <p><progress max="5.00" value=<%= @average %>></p>
-
+<br><br>
 <% unless @shop.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
@@ -50,4 +51,5 @@
     <%= link_to 'お気に入りする', favorites_path(shop_id: @shop.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-<br>
+<br><br><br><br>
+</div>

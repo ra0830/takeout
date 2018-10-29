@@ -1,3 +1,5 @@
+<div class="wapper">
+<div class="container" >
 <h1>気になる一覧</h1>
 
 <table>
@@ -15,9 +17,11 @@
     <td><%= shop.station %></td>
     <td><%= shop.payment %>円</td>
 
-    <td><%= link_to '詳細', shop_path(shop.id) %></td>
+    <td><%= link_to '詳細', shop_path(shop.id) ,class: 'btn btn-default'%></td>
     <td><%#= link_to '編集', edit_shop_path(shop.id) %></td>
     <td><%#= link_to '削除', shop_path(shop.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
+</div>
+</div>

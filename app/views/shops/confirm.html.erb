@@ -20,8 +20,7 @@
   <p>住所: <%= @shop.adress %>
   <p>お会計: <%= @shop.payment %>
   <p>感想: <%= @shop.impression %></p>
-  <%#= image_tag(@shop.image.url) %>
-  <%#= form.hidden_field :image_cache %>
+ <br><br><br>
   <%= form.submit  "登録する" %>
 <% end %>
 
@@ -34,6 +33,7 @@
   <%= form.hidden_field :payment %>
   <%= form.hidden_field :impression %>
   <%= form.hidden_field :image_cache %>
+  <br><br><br>
   <%= form.submit "もどる", name: 'back' %>
 <% end %>
 </div>

@@ -22,7 +22,7 @@
 <br>
 <%= link_to '予算の低い順に並び替え', shops_path(low: 'true') %>
 <%= link_to '予算の高い順に並び替え', shops_path(high: 'true') %>
-<br><br>
+<br>
 
 <table>
   <tr>
@@ -49,7 +49,7 @@
 </table>
 
 <br>
-<%= link_to '新しいお店を投稿する', new_shop_path %>
+<%= link_to '新しいお店を投稿する', new_shop_path,class: 'btn btn-default' %>
 <%= paginate @shops %>
 </div>
 </div>

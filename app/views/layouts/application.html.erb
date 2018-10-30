@@ -14,7 +14,7 @@
       <header>
         <ul>
           <% if user_signed_in? %>
-            <li><a href="#"><%= link_to "＊お店一覧", shops_path %></a></li>
+            <li><a href="#"><%= link_to "＊お店一覧、投稿", shops_path %></a></li>
             <li><a href="#"><%= link_to '＊あなたの気になる一覧', favorites_path %></a></li>
             <li><a href="#"><%= link_to "＊ログアウト", destroy_user_session_path, method: :delete %></a></li>
           <% else %>
@@ -32,6 +32,7 @@
       </header>
           <%= yield %>
       <footer>
+      <br><br>
         Copyright © 2018 TokyoTakeOut INC All RIGHTS RESERVED.
       </footer> 
     </div>

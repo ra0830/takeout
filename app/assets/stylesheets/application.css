@@ -63,6 +63,7 @@
   bottom: 0;
   color: white;
   background-color: #ffa500;
+  text-align: center;
  }
  .wapper{
   /* height: auto !important; */
@@ -76,8 +77,11 @@
    text-align: center;
  }
 
- .cyousei{
+ .cyousei {
   padding-bottom: 10%;
+}
 
+.alert {
+  padding: 44px
+}
 
- }

@@ -63,6 +63,9 @@ class ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+      unless @shop.user_id = current_user.id
+        redirect_to top_path, notice:'権限がありません'
+      end
   end
 
    def update

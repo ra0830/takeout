@@ -5,7 +5,7 @@ class Shop < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   has_many :rates, dependent: :destroy
   has_many :rate_users, through: :rates, source: :user
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 50 }
   mount_uploader :image, ImageUploader
 
   def self.search(search, pages)

@@ -14,12 +14,12 @@
       <header>
         <ul>
           <% if user_signed_in? %>
-            <li><a href="#"><%= link_to "お店一覧", shops_path %></a></li>
-            <li><a href="#"><%= link_to 'あなたの気になる一覧', favorites_path %></a></li>
-            <li><a href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a></li>
+            <li><a href="#"><%= link_to "＊お店一覧", shops_path %></a></li>
+            <li><a href="#"><%= link_to '＊あなたの気になる一覧', favorites_path %></a></li>
+            <li><a href="#"><%= link_to "＊ログアウト", destroy_user_session_path, method: :delete %></a></li>
           <% else %>
-            <li><a href="#"><%= link_to "新規登録", new_user_registration_path %></a></li>
-            <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
+            <li><a href="#"><%= link_to "＊新規登録", new_user_registration_path %></a></li>
+            <li><a href="#"><%= link_to "＊ログイン", new_user_session_path %></a></li>
           <% end %>
 
           <% if notice %>

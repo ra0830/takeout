@@ -1,6 +1,9 @@
+<div class="cyousei">
+
 <div class="wapper">
 <div class="container" >
 <h1>ショップ詳細画面</h1>
+<br><br>
 <p>店名: <%= @shop.name %></p>
 <p>カテゴリー: <%= @shop.category %></p>
 <p>最寄駅: <%= @shop.station %></p>
@@ -14,6 +17,7 @@
   <%= image_tag @shop.image.url,size:200 %>
 </p>
 <% end %>
+<br>
 <p>コメント一覧:</p>
 <div id="comments_area">
 <!-- 投稿されたコメント一覧をショップの詳細ページに表示するためのrender -->
@@ -22,7 +26,7 @@
 
 <!-- コメント入力欄をショップの詳細ページに表示するためのrender -->
 <%= render partial: 'comments/form', locals: { comment: @comment, shop: @shop } %>
-
+<br>
 <% unless @shop.user_id == current_user.id %>
   <%# if @shop.rates.present? %>
   <% if @rate.present? %>
@@ -52,6 +56,9 @@
     <%= link_to 'お気に入りする', favorites_path(shop_id: @shop.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-<br><br><br><br>
 </div>
 </div>
+
+</div>
+
+

@@ -84,7 +84,6 @@ class ShopsController < ApplicationController
   end
 
   def confirm
-    # binding.pry
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     render :new if @shop.invalid?

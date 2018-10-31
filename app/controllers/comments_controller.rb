@@ -12,16 +12,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @comment = Comment.find(params[:id])
-  # end
-
-  # def update
-  #   @comment = Comment.find(params[:id])
-  #   @shop = @comment.shop
-  #   redirect_to shop_path(@shop) if @comment.update(comment_params)
-  # end
-
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy

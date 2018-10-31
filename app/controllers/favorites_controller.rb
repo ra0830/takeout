@@ -11,8 +11,6 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    # binding.pry
-    
     @favorite_shops = current_user.favorite_shops
   end
 end

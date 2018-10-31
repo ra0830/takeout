@@ -2,9 +2,7 @@
 <div class="container">
 <h1>＊みんなが投稿したShops＊</h1>
 
-<p><%#= notice %></p>
-
-<br>
+<br><br>
 <%= form_with(model: Shop.new, local: true, method: :get, url: shops_path) do |f| %>
   <%= f.label :category, "カテゴリーで検索" %>
   <%= f.select :category,[['洋食','洋食'],['和食','和食'],['中華','中華'],['多国籍料理','多国籍料理'],['スイーツ','スイーツ'],['その他','その他']] %>

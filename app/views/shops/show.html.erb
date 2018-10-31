@@ -1,66 +1,62 @@
 <div class="cyousei">
+  <div class="wapper">
+    <div class="container" >
+      <h1>ショップ詳細画面</h1>
+      <br><br>
+      <h4>＊店名: <%= @shop.name %><h4>
+      <br>
+      <p>＊カテゴリー: <%= @shop.category %></p>
+      <br>
+      <p>＊最寄駅: <%= @shop.station %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;＊電話番号: <%= @shop.phone_number %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;＊住所: <%= @shop.adress %></p>
+      <br><br>
+      <p>＊お会計: <%= @shop.payment %>円
+      <br><br>
+      <p>＊感想: <%= @shop.impression %></p>
+      <% if @shop.image.present? %>
+        <p>
+        <strong>＊写真:</strong>
+        <%= image_tag @shop.image.url,size:200 %>
+        </p>
+      <% end %>
+      <br>
+      <p>＊コメント一覧:</p>
+      <div id="comments_area">
+          <!-- 投稿されたコメント一覧をショップの詳細ページに表示するためのrender -->
+        <%= render partial: 'comments/index', locals: { comments: @comments, shop: @shop } %>
+      </div>
 
-<div class="wapper">
-<div class="container" >
-<h1>ショップ詳細画面</h1>
-<br><br>
-<h4>＊店名: <%= @shop.name %><h4>
-<br>
-<p>＊カテゴリー: <%= @shop.category %></p>
-<br>
-<p>＊最寄駅: <%= @shop.station %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;＊電話番号: <%= @shop.phone_number %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;＊住所: <%= @shop.adress %></p>
-<br><br>
-<p>＊お会計: <%= @shop.payment %>円
-<br><br>
-<p>＊感想: <%= @shop.impression %></p>
-<% if @shop.image.present? %>
-<p>
-  <strong>＊写真:</strong>
-  <%= image_tag @shop.image.url,size:200 %>
-</p>
-<% end %>
-<br>
-<p>＊コメント一覧:</p>
-<div id="comments_area">
-<!-- 投稿されたコメント一覧をショップの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/index', locals: { comments: @comments, shop: @shop } %>
-</div>
+          <!-- コメント入力欄をショップの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/form', locals: { comment: @comment, shop: @shop } %>
+      <br>
+      <% unless @shop.user_id == current_user.id %>
+        <% if @rate.present? %>
+          <br>
+          <p>評価を終えています</p>
+        <% else %>
+          <br><br>
+          <p>＊この投稿を評価する</p>
+          <%= form_with(model: Rate, local: true, method: :post) do |f| %>
+            <%= f.label :score, "5点満点で評価する" %>
+            <%= f.select :score,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5']] %>
+            <%= f.hidden_field :shop_id, value: @shop.id %>
+            <%= f.submit "評価" %>
+          <% end %>
+        <% end %>
+          <br><br>
+      <% end %>
 
-<!-- コメント入力欄をショップの詳細ページに表示するためのrender -->
-<%= render partial: 'comments/form', locals: { comment: @comment, shop: @shop } %>
-<br>
-<% unless @shop.user_id == current_user.id %>
-  <%# if @shop.rates.present? %>
-  <% if @rate.present? %>
-
-    <br>
-    <p>評価を終えています</p>
-  <% else %>
-    <br><br>
-    <p>＊この投稿を評価する</p>
-    <%= form_with(model: Rate, local: true, method: :post) do |f| %>
-      <%= f.label :score, "5点満点で評価する" %>
-      <%= f.select :score,[['1','1'],['2','2'],['3','3'],['4','4'],['5','5']] %>
-      <%= f.hidden_field :shop_id, value: @shop.id %>
-      <%= f.submit "評価" %>
-    <% end %>
-  <% end %>
- <br><br>
-<% end %>
-
-<p> ＊評価の平均（五段階）：<%= @average %></p>
-<p><progress max="5.00" value=<%= @average %>></p>
-<br><br>
-<% unless @shop.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(shop_id: @shop.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
-</div>
-</div>
-
+      <p> ＊評価の平均（五段階）：<%= @average %></p>
+      <p><progress max="5.00" value=<%= @average %>></p>
+      <br><br>
+      <% unless @shop.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+          <%= link_to 'お気に入りする', favorites_path(shop_id: @shop.id), method: :post, class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 

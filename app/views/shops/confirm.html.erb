@@ -1,42 +1,39 @@
 <div class="cyousei">
-<div class="wapper">
-<div class="container" >
-<h3>以下の内容で、送信する。</h3>
+  <div class="wapper">
+    <div class="container" >
+      <h3>以下の内容で、送信する。</h3>
 
-<%= form_with(model: @shop, url: shops_path, local: true) do |form| %>
-  <%= form.hidden_field :name %>
-  <%= form.hidden_field :category %>
-  <%= form.hidden_field :station %>
-  <%= form.hidden_field :phone_number %>
-  <%= form.hidden_field :adress %>
-  <%= form.hidden_field :payment %>
-  <%= form.hidden_field :impression %>
-  <%#= image_tag(@shop.image.url) %>
-  <%= form.hidden_field :image_cache %>
+      <%= form_with(model: @shop, url: shops_path, local: true) do |form| %>
+        <%= form.hidden_field :name %>
+        <%= form.hidden_field :category %>
+        <%= form.hidden_field :station %>
+        <%= form.hidden_field :phone_number %>
+        <%= form.hidden_field :adress %>
+        <%= form.hidden_field :payment %>
+        <%= form.hidden_field :impression %>
+        <p>店名: <%= @shop.name %></p>
+        <p>カテゴリー: <%= @shop.category %></p>
+        <p>最寄駅: <%= @shop.station %></p>
+        <p>電話番号: <%= @shop.phone_number %></p>
+        <p>住所: <%= @shop.adress %>
+        <p>お会計: <%= @shop.payment %>
+        <p>感想: <%= @shop.impression %></p>
+        <br><br><br>
+        <%= form.submit  "登録する" %>
+      <% end %>
 
-  <p>店名: <%= @shop.name %></p>
-  <p>カテゴリー: <%= @shop.category %></p>
-  <p>最寄駅: <%= @shop.station %></p>
-  <p>電話番号: <%= @shop.phone_number %></p>
-  <p>住所: <%= @shop.adress %>
-  <p>お会計: <%= @shop.payment %>
-  <p>感想: <%= @shop.impression %></p>
- <br><br><br>
-  <%= form.submit  "登録する" %>
-<% end %>
-
-<%= form_with(model: @shop, url: new_shop_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :name %>
-  <%= form.hidden_field :category %>
-  <%= form.hidden_field :station %>
-  <%= form.hidden_field :phone_number %>
-  <%= form.hidden_field :adress %>
-  <%= form.hidden_field :payment %>
-  <%= form.hidden_field :impression %>
-  <%= form.hidden_field :image_cache %>
-  <br><br><br>
-  <%= form.submit "もどる", name: 'back' %>
-<% end %>
-</div>
-</div>
+      <%= form_with(model: @shop, url: new_shop_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :name %>
+        <%= form.hidden_field :category %>
+        <%= form.hidden_field :station %>
+        <%= form.hidden_field :phone_number %>
+        <%= form.hidden_field :adress %>
+        <%= form.hidden_field :payment %>
+        <%= form.hidden_field :impression %>
+        <%= form.hidden_field :image_cache %>
+        <br><br><br>
+        <%= form.submit "もどる", name: 'back' %>
+      <% end %>
+    </div>
+  </div>
 </div>

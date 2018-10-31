@@ -1,54 +1,51 @@
 <div class="wapper">
-<div class="container">
-<h1>＊みんなが投稿したShops＊</h1>
+  <div class="container">
+    <h1>＊みんなが投稿したShops＊</h1>
 
-<br><br>
-<%= form_with(model: Shop.new, local: true, method: :get, url: shops_path) do |f| %>
-  <%= f.label :category, "カテゴリーで検索" %>
-  <%= f.select :category,[['洋食','洋食'],['和食','和食'],['中華','中華'],['多国籍料理','多国籍料理'],['スイーツ','スイーツ'],['その他','その他']] %>
-  <%= f.hidden_field :search_category, value: 'true'%>
+    <br><br>
+    <%= form_with(model: Shop.new, local: true, method: :get, url: shops_path) do |f| %>
+      <%= f.label :category, "カテゴリーで検索" %>
+      <%= f.select :category,[['洋食','洋食'],['和食','和食'],['中華','中華'],['多国籍料理','多国籍料理'],['スイーツ','スイーツ'],['その他','その他']] %>
+      <%= f.hidden_field :search_category, value: 'true'%>
+      <%= f.submit "検索" %>
+    <% end %>
+    <br><br>
+    <%= form_tag shops_path, :method => 'get' do %>
+      <p>最寄駅で検索
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "検索", :name => nil %>
+      </p>
+    <% end %>
+    <br>
+    <%= link_to '予算の低い順に並び替え', shops_path(low: 'true') %>
+    <%= link_to '予算の高い順に並び替え', shops_path(high: 'true') %>
+    <br>
 
-  <%= f.submit "検索" %>
-<% end %>
-<br><br>
-<%= form_tag shops_path, :method => 'get' do %>
-  <p>最寄駅で検索
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "検索", :name => nil %>
-  </p>
-<% end %>
-<br>
-<%= link_to '予算の低い順に並び替え', shops_path(low: 'true') %>
-<%= link_to '予算の高い順に並び替え', shops_path(high: 'true') %>
-<br>
+    <table>
+      <tr>
+        <th>店名</th>
+        <th>カテゴリー</th>
+        <th>最寄駅</th>
+        <th>予算</th>
+      </tr>
 
-<table>
-  <tr>
-    <th>店名</th>
-    <th>カテゴリー</th>
-    <th>最寄駅</th>
-    <th>予算</th>
-  </tr>
-
-<% @shops.each do |shop| %>
-  <tr>
-    <td>＊ <%= shop.name %></td>
-    <td><%= shop.category%></td>
-    <td><%= shop.station %></td>
-    <td><%= shop.payment %>円</td>
-
-    <td><%= link_to '詳細', shop_path(shop.id),class: 'btn btn-default' %></td>
-    <% if shop.user == current_user %>
-    <td><%= link_to '編集', edit_shop_path(shop.id,test: 'true'), class: 'btn btn-info' %></td>
-    <td><%= link_to '削除', shop_path(shop.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></td>
-    <% end%>
-  </tr>
-<% end %>
-</table>
-
-<br>
-<%= link_to '新しいお店を投稿する', new_shop_path,class: 'btn btn-default' %>
-<br>
-<%= paginate @shops %>
-</div>
+      <% @shops.each do |shop| %>
+        <tr>
+          <td>＊ <%= shop.name %></td>
+          <td><%= shop.category%></td>
+          <td><%= shop.station %></td>
+          <td><%= shop.payment %>円</td>
+          <td><%= link_to '詳細', shop_path(shop.id),class: 'btn btn-default' %></td>
+          <% if shop.user == current_user %>
+            <td><%= link_to '編集', edit_shop_path(shop.id,test: 'true'), class: 'btn btn-info' %></td>
+            <td><%= link_to '削除', shop_path(shop.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></td>
+          <% end%>
+        </tr>
+      <% end %>
+    </table>
+    <br>
+    <%= link_to '新しいお店を投稿する', new_shop_path,class: 'btn btn-default' %>
+    <br>
+    <%= paginate @shops %>
+  </div>
 </div>

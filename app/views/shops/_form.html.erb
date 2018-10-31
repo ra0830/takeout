@@ -4,9 +4,9 @@
       <h2><%= @shop.errors.count %>件のエラーがあります。</h2>
       <ul>
 
-      <% @shop.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @shop.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

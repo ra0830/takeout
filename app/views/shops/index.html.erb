@@ -41,7 +41,7 @@
 
     <td><%= link_to '詳細', shop_path(shop.id),class: 'btn btn-default' %></td>
     <% if shop.user == current_user %>
-    <td><%= link_to '編集', edit_shop_path(shop.id), class: 'btn btn-info' %></td>
+    <td><%= link_to '編集', edit_shop_path(shop.id,test: 'true'), class: 'btn btn-info' %></td>
     <td><%= link_to '削除', shop_path(shop.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></td>
     <% end%>
   </tr>

@@ -7,6 +7,14 @@ ja:
       shop:
         title: "タイトル"
         content: "内容"
+        name: "名前"
+        category: "カテゴリー"
+        station: "最寄駅"
+        phone_number: "電話番号"
+        adress: "住所"
+        payment: "お会計"
+        impression: "感想"
+        image: "画像"
       contact:
         name: "名前"
         email: "メールアドレス"

@@ -47,8 +47,7 @@ class ShopsController < ApplicationController
     end
   end
 
-  def show
-    # binding.pry        
+  def show       
     @shop = Shop.find(params[:id])
     @comments = @shop.comments
     @comment = @shop.comments.build
@@ -58,7 +57,6 @@ class ShopsController < ApplicationController
     @sum = @shop.rates.sum(:score)
     @count = @shop.rates.count(:user_id)
     @average = (@sum/@count.to_f).round(2)
-      # binding.pry
   end
 
   def edit

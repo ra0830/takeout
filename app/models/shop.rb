@@ -6,6 +6,9 @@ class Shop < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :rate_users, through: :rates, source: :user
   validates :name, presence: true, length: { maximum: 50 }
+  validates :impression, presence: true
+  validates :payment, presence: true
+  validates :station, presence:true
   mount_uploader :image, ImageUploader
 
   def self.search(search, pages)

@@ -12,7 +12,7 @@
   <% end %>
 
   <br>
-    <%= form.label :店名 %>
+    <%= form.label :店名（必須） %>
     <%= form.text_field :name %>
   <br>
   <br>
@@ -20,7 +20,7 @@
     <%= form.select :category ,[['洋食','洋食'],['和食','和食'],['中華','中華'],['多国籍料理','多国籍料理'],['スイーツ','スイーツ'],['その他','その他']]%>
   <br>  
   <br>
-  <%= form.label :最寄駅 %>
+  <%= form.label :最寄駅（必須）%>
   <%= form.text_field :station%>
   <br>
   <br>
@@ -32,12 +32,12 @@
   <%= form.text_field :adress %>
   <br>
   <br>
-  <%= form.label :予算 %>
+  <%= form.label :予算（必須） %>
   <%= form.text_field :payment %>円
   <br>
   <br>
-    <%= form.label :レビュー %>
-    <%= form.text_field :impression %>
+    <%= form.label :感想（必須） %>
+    <%= form.text_area :impression %>
   <br>
   <br>
     <%= form.label :画像 %>
